@@ -1,0 +1,98 @@
+{
+  "name": "@codeching/my-npm-test-package",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "4.0.2",
+    "@material-ui/styles": "4.1.2",
+    "@testing-library/dom": "^7.20.2",
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.1",
+    "@testing-library/user-event": "^12.2.0",
+    "detect-browser": "^5.1.0",
+    "husky": "^2.2.0",
+    "prop-types": "^15.7.2",
+    "react-router-dom": "^5.1.2",
+    "react-sticky-el": "^2.0.5",
+    "web-vitals": "^0.2.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@testing-library/dom": "^7.20.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@types/jest": "^24.9.1",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "history": "^4.9.0",
+    "husky": "^2.2.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "jest-teamcity-reporter": "^0.9.0",
+    "lint-staged": ">=8",
+    "prettier": "1.17.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "react-test-renderer": "^16.5.2"
+  },
+  "peerDependencies": {
+    "react": "16.x",
+    "react-dom": "16.x",
+    "react-scripts": "3.x"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "cross-env CI=true react-scripts test --testResultsProcessor=jest-teamcity-reporter --env=jest-environment-jsdom-sixteen",
+    "test:coverage": "npm test -- --coverage",
+    "test:watch": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "eject": "react-scripts eject"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "arrowParens": "always"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run build && npm test"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write",
+      "eslint src/**/*.js",
+      "git add"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
