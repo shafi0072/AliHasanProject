@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import DesignSystem from '../../theme/design_system/designSystem';
+import Navbar from './Navbar';
 
 const useStyles = DesignSystem.organisms.Header.HeaderOrganism();
 
@@ -15,13 +16,7 @@ const Header = (props) => {
 
   return (
     <React.Fragment>
-      <AppBar ref={headerRef} position="relative" data-testid="header" elevation={0}>
-        <div className={classes.mainNav}>
-          <div className={classes.logoContainer}>
-            <Link>{logo}</Link>
-          </div>
-        </div>
-      </AppBar>
+      <Navbar />
     </React.Fragment>
   );
 };
