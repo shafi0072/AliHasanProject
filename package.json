@@ -22,15 +22,15 @@
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "7.12.1",
-    "babel-plugin-inline-react-svg": "^1.1.2",
     "@babel/cli": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/presets-react": "^7.12.1",
     "@testing-library/dom": "^7.20.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^24.9.1",
+    "babel-plugin-inline-react-svg": "^1.1.2",
     "cross-env": "^5.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
@@ -58,21 +58,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "babel /src/package -d dist --copy-files --plugins inline-react-svg",
+    "build": "babel src/package -d dist",
     "test": "cross-env CI=true react-scripts test --testResultsProcessor=jest-teamcity-reporter --env=jest-environment-jsdom-sixteen",
     "test:coverage": "npm test -- --coverage",
     "test:watch": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject"
   },
-  "babel": {
-    "presets": [
-      "@babel-preset-react",
-      "@babel-env"
-    ],
-    "ignore": [
-      "**/*.test.js"
-    ]
-  },
+ 
   "prettier": {
     "printWidth": 120,
     "tabWidth": 2,
@@ -81,25 +73,9 @@
     "trailingComma": "es5",
     "arrowParens": "always"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run build && npm test"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "prettier --write",
-      "eslint src/**/*.js",
-      "git add"
-    ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  
+  
+ 
   "browserslist": {
     "production": [
       ">0.2%",
